@@ -13,20 +13,25 @@ function getWikiResults(searchQuery) {
         utf8: 1,
         gsrsearch: searchQuery, // search query argument
         prop: "extracts",
+        exsentences: 1,
         exintro: 1, // limit to 100chars otherwise won't work
         exlimit: "max", // all returned results to display extract
         format: "json"
     },
     xhrFields: { withCredentials: true },
     headers: { "Api-User-Agent": "WikiViewer/1.0" },
-    success: function(data) {
-      console.log(data);
+    success: function(res) {
+      console.log(res);
+      var wikiResults = res.query.pages[15604]['extract'];
+      console.log(wikiResults);
+      $('h2').text('Returning results for ' + searchQuery);
+      $('#wikiResults').html(wikiResults);
+
     },
     error: function(error){
-      console.log("Broken Pipe");
+      console.log(error);
     }
   });
-
 }
 
 getWikiResults("james");
