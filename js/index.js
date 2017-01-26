@@ -1,3 +1,14 @@
+// function traverse (o) {
+//   for (i in o) {
+//     if (!!o[i] && typeof(o[i]) == "object") {
+//       console.log(i, o[i]);
+//       traverse(o[i]);
+//     } else {
+//       console.log('Leaf Node: ' + o[i]);
+//     }
+//   }
+// }
+
 function getWikiResults(searchQuery) {
   // Get wiki results based on searchQuery
   var r = (new Date()).getTime();
@@ -25,13 +36,14 @@ function getWikiResults(searchQuery) {
     headers: { "Api-User-Agent": "WikiViewer/1.0" },
 
     success: function(res) {
-      //console.log(res);
+      // console.log(res);
+      // traverse(res);
       var wikiResults = res['query']['pages'];
       var wikiExtracts = [];
       var totalEntries = Object.keys(wikiResults).length; // should be 10
 
       // Loop through all "pages" - each element signifies an entry
-      // and take the 'extract' part.
+      // and just take the 'extract' part.
       // Push all 10 extracts into an array.
       for (var i = 0; i < totalEntries; i++){
         //console.log(wikiResults[Object.keys(wikiResults)[i]]['extract']);
@@ -51,4 +63,7 @@ function getWikiResults(searchQuery) {
   }); // .ajax()
 } // function getWikiResults()
 
-getWikiResults("james");
+$('#wikiButton').click(function() {
+  getWikiResults($('#searchQuery').val());
+  $('#searchQuery').val('');
+})
