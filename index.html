@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,500" rel="stylesheet">
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://use.fontawesome.com/80c9a7f760.js"></script>
   </head>
   <body>
 
@@ -14,20 +15,23 @@
     <div class="banner text-primary">
       <div class="text">
         <h1>Wikipedia Viewer</h1>
-        <h2></h2>
       </div>
     </div>
 
     <!-- Wikipedia Viewer Box -->
     <div class="container">
-      <div id="wikiRandom"></div>
+      <div id="wikiTitle"></div>
       <div id="wikiResults"></div>
+
+      <div id="randomWiki">
+        <i id="randomWikiButton" class="fa fa-refresh" aria-hidden="true" style="font-size:3em"> </i>
+      </div>
 
       <!-- Search Box -->
       <div id="wikiSearchBox">
           <input type="text" name="Wiki Search" id="searchQuery" />
           <input type="button" name="Submit" id="wikiButton"
-            class="btn btn-sm btn-primary" value="Submit" />
+            class="btn btn-sm btn-primary" value="Search" />
       </div>
 
     </div>

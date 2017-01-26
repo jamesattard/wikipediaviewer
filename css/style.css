@@ -1,3 +1,7 @@
+a, a:link, a:visited, a:hover, a:active, #wikiResults {
+    color: hotpink;
+}
+
 body {
   background-color: #FFF;
   color: #FFF;
@@ -12,11 +16,6 @@ h1 {
   font-size: 5.5em;
 }
 
-h2 {
-  font-family: 'Lobster', cursive;
-  font-size: 2.0em;
-}
-
 .banner {
   display: flex;
 }
@@ -26,19 +25,6 @@ h2 {
   margin: auto;
 }
 
-/*.container {
-  height: 350px;
-  max-width: 700px;
-  border-radius:5px;
-  padding-top: 10px;
-  margin: 40px auto 40px auto;
-  background-color: #2a2a2a;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}*/
-
 .container {
   background-color: #2a2a2a;
   border-radius:5px;
@@ -47,12 +33,18 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 1%;
+}
+
+.fa-refresh:hover {
+    color: hotpink;
 }
 
 .footer {
   color: #000;
   font-family: 'Raleway', sans-serif;
   font-size: 0.7em;
+  margin-top: 1%;
 }
 
 .text {
@@ -60,10 +52,20 @@ h2 {
   margin: auto;
 }
 
+#randomWiki {
+  padding-bottom: 5%;
+}
+
 #searchQuery {
   color: #000;
 }
 
 #wikiResults {
+  padding-bottom: 5%;
+}
+
+#wikiTitle {
+  font-family: 'Lobster', cursive;
+  font-size: 2.0em;
   padding-bottom: 5%;
 }
