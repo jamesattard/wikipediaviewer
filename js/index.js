@@ -27,27 +27,30 @@ function getWikiResults(searchQuery) {
         gsrsearch: searchQuery, // search query argument
         prop: "extracts",
         exsentences: 1,
-        exintro: 1, // limit to 100chars otherwise won't work
+        exintro: 1, // intro text of extract only (required)
         exlimit: "max", // all returned results to display extract
         format: "json"
     },
 
     xhrFields: { withCredentials: true },
-    headers: { "Api-User-Agent": "WikiViewer/1.0" },
+    headers: { "Api-User-Agent": "WikiViewer/1.0" }, // required by Wikipedia
 
     success: function(res) {
       // traverse(res);
       var wikiResults = res['query']['pages'];
       var wikiExtracts = [];
+      var wikiLink = [];
       var totalEntries = Object.keys(wikiResults).length; // should be 10
+      $('#wikiResults').text(''); // refresh results
 
       for (var i = 0; i < totalEntries; i++){
+        wikiLink.push(wikiResults[Object.keys(wikiResults)[i]]['pageid']);
         wikiExtracts.push(wikiResults[Object.keys(wikiResults)[i]]['extract']);
+        $('#wikiResults').append('<a href="http://en.wikipedia.org/?curid=' +
+          wikiLink[i] + '"'  + 'target="_blank">' + wikiExtracts[i]  + '</a>');
       }
 
       $('#wikiTitle').text('"' + searchQuery + '"');
-      $('#wikiResults').html(wikiExtracts);
-
     },
 
     error: function(error){
